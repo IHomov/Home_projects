@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            formatted_address: "Washington Square, New York, NY 10012, Сполучені Штати Америки",
+            geometry: {
+                location: {
+                    lat: 40.7308838,
+                    lng: -73.997332
+                },
+                viewport: {
+                    northeast: {
+                        lat: 40.7333674,
+                        lng: -73.99379435000002
+                    },
+                    southwest: {
+                        lat: 40.72847220000001,
+                        lng: -74.00132615
+                    }
+                }
+            },
+            name: "Washington Square Park"
+        }
+
+        //BEGIN
+        let NewObj = CloneArray(obj);
+        console.log("Old array:", obj, "New array:", NewObj);
+        //END
+
+        function CloneArray(object) {
+            const NewObj = {};
+            for (let key in object) {
+                if (typeof object === "Object") {
+                    NewObj[key] = CloneArray(object[key]);
+                }
+                else {
+                    NewObj[key] = object[key];
+                }
+            }
+            return NewObj;
+        }
+
+
+    </script>
+</body>
+
+</html>

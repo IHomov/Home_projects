@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+/*
+
+необходимо написать скрипт, который будет анализировать успеваемость учебной группы и выбирать наилучшего и наихудшего студента, основываясь на рассчитанном среднем балле. Данные о студентах и их успеваемости основан на массиве:
+
+Вывод результата работы в консоль будет содержать в себе:
+
+список группы со средним балл каждого студента
+итог - имя лучшего студента и его средний балл, имя худшего студента и его средний балл
+*/
+
+    let Marks =      [
+            { name: 'Bilbo',   grades: [6,9,9,9,10,7]},
+            { name: 'Saruman', grades: [7,9,8,9,8]},
+            { name: 'Frodo',   grades: [10,11,11,12]},
+            { name: 'Pipin',   grades: [6,8,8,7,11]},
+            { name: 'Gendalf', grades: [9,10,9,10,11,8]},
+            { name: 'Legolas', grades: [8,7,8,9,8,9,9]},
+            { name: 'Aragorn', grades: [9,9,10,12,10,8,9]},
+]
+
+let groupAverage = calculate(Marks);
+PresentationAverrage(groupAverage);
+let result = MaxMin(groupAverage);
+MinMaxPresentation(result);
+
+
+function calculate(Arr){
+        let Averrage = [];
+
+        for (let item of Arr){
+            let sum = 0;
+
+            for(let i=0; i< item.grades.length; i++){
+                sum += item.grades[i];
+            }
+            let name = item.name;
+            let avg = (sum / item.grades.length).toFixed(2);
+            
+            Averrage.push({name: name, avg: avg});
+            
+        }
+        return Averrage;
+        
+}
+function PresentationAverrage (data){
+    for(let item of data){
+        console.log(`${item.name} - ${item.avg}`);
+    }
+}
+
+function MaxMin(data){
+        let max = min = data[0].avg;
+        let MaxName = MinName = data[0].name;
+
+        for(let item of data){
+            if(item.avg < max){
+                max = item.avg;
+                MaxName = item.name;
+            }
+            else if(item.avg < min){
+                min = item.avg;
+                MinName = item.name;
+            }
+        }
+        return {
+            max,
+            min,
+            MaxName,
+            MinName,
+
+        }
+    }
+function MinMaxPresentation(rate){
+    console.log(`The best is ${rate.MaxName} has ${rate.max}\nThe worst is ${rate.MinName} has ${rate.min}`)
+}
+
+
+    </script>
+</body>
+</html>

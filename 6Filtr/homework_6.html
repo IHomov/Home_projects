@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+	<head>
+		<title>Homework_6</title>
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="lesson_3.css">
+	</head>
+
+	<body>
+		
+
+		<script>
+			
+			//BEGIN
+
+			const obj = {
+			   vector: [1,11,2,22,3,33,4,44],
+			   line: [2,7,11,12,19,23,31,39,44,56],
+			   chaos: [5,1,66,24,1,78,52,40],
+			   strings: ['a', 'bb', 'ass','more', 'c', 'let','smile']
+			}; 
+
+			const newObj = {}; //create empty object for fullfilling with modified data from obj
+
+			newObjCreation(obj); //fullfill new object according to the requirements
+
+			console.log(newObj); 
+			
+			//END
+
+			function newObjCreation(object){
+
+				for(let key in object){
+					switch (key){
+						case 'vector': 
+
+							let unit = [];
+							newObj[key] = [];
+
+							for(let i = object[key].length; i > 0; i -= 2){
+								unit = object[key].splice(0, 2);
+								newObj[key].push(unit);
+							}
+
+							break;
+
+						case 'line':
+
+							newObj[key] = object[key].map(item => {
+								if(item%2 !== 0){return item}
+							}).filter(item => item !== undefined);
+
+							break;
+
+						case 'chaos':
+
+							function filterChaos(value){
+								return (value > 50);
+							}
+
+							newObj[key] = object[key].filter(filterChaos);
+
+							break;
+
+						case 'strings':
+
+							function filterStrings(value){
+								return (value.length > 3);
+							}
+
+							newObj[key] = object[key].filter(filterStrings);
+
+							break;
+
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

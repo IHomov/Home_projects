@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ai-Ai educational center</title>
+</head>
+<body>
+
+	<script>
+
+		//BEGIN
+
+		let groupResult = [ 
+			  { name: 'Bilbo',   grades: [6,9,9,9,10,7]},
+			  { name: 'Saruman', grades: [7,9,8,9,8]},
+			  { name: 'Frodo',   grades: [10,11,11,12]},
+			  { name: 'Pipin',   grades: [6,8,8,7,11]},
+			  { name: 'Gendalf', grades: [9,10,9,10,11,8]},
+			  { name: 'Legolas', grades: [8,7,8,9,8,9,9]},
+			  { name: 'Aragorn', grades: [9,9,10,12,10,8,9]},
+		];
+
+		let groupAverage = averageScoreCalc(groupResult); // Calculte average rate of every student
+
+		scoreRepresent(groupAverage); // Make representation of the student's table in console
+
+		let result = bestWorstCalc(groupAverage); // Find out the best and the worst student in the group
+
+		bestWorstRepresent(result); // Make representation of the best and worst srudents in console
+
+		//END
+
+		function averageScoreCalc (array){
+
+			let averageScore = [];
+
+			for(let item of array){
+
+				let sumOfMarks = 0; // Variable for accumulating the sum of marks
+
+				for(let i = 0; i < item.grades.length; i++){
+					sumOfMarks += item.grades[i];
+				}
+
+				let name = item.name;
+				let score =  (sumOfMarks / item.grades.length).toFixed(2); //Calculation the average mark
+
+				averageScore.push({ name: name, score: score });
+			}
+
+			return averageScore;
+		}
+
+		function scoreRepresent (data) {
+
+			for(let item of data){
+				console.log(`${item.name} - ${item.score}`);
+			}
+		}
+
+		function bestWorstCalc (list){
+
+			let bestRate = worstRate = list[0].score;
+			let bestStudent = worstStudent = list[0].name;
+
+			for(let item of list){
+				if(item.score < bestRate){
+					bestStudent = item.name;
+					bestRate = item.score;
+				} else if(item.score < worstRate){
+				 	worstStudent = item.name;
+					worstRate = item.score;
+				}
+			}
+
+			return {bestStudent, bestRate, worstStudent, worstRate}
+		}
+
+		function bestWorstRepresent(rate){
+
+			console.log(`The best is ${rate.bestStudent} has ${rate.bestRate}\nThe worst is ${rate.worstStudent} has ${rate.worstRate}`)
+		}
+
+	</script>
+	
+</body>
+</html>

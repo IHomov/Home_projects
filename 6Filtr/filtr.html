@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtr</title>
+</head>
+<body>
+    <script>
+        //BEGIN
+        const obj = {
+                        vector: [1,11,2,22,3,33,4,44],
+                        line: [2,7,11,12,19,23,31,39,44,56],
+                        chaos: [5,1,66,24,1,78,52,40],
+                        strings: ['a', 'bb', 'ass','more', 'c', 'let','smile']
+                    }
+        const newArr = {}; //our new Array for fullfiling in process working
+        Processing(obj);
+        console.log(newArr);
+        //END
+
+        function Processing(arr){
+            for(let key in arr)
+                switch(key){
+                    case 'vector':
+                        let perem = [];
+                        newArr[key] = [];
+                        
+                        for(let i = arr[key].length; i>0; i-=2){
+                            perem = arr[key].splice(0,2);
+                            newArr[key].push(perem);
+                        }
+                        break;
+                    
+                    case 'line':
+
+                    newArr[key] = arr[key].map(item => {
+                        if(item%2 !== 0){return item}}).filter(item => item !== undefined);      
+                        break;
+                    case 'chaos':
+                            function filterForChaos(val){
+                                return (val > 50);
+                            }
+
+                            newArr[key] = arr[key].filter(filterForChaos);
+                        break; 
+
+                    case 'strings':
+                            function filterForStrings(val){
+                                return (val.length > 3);
+                            }
+                            newArr[key] = arr[key].filter(filterForStrings);
+                        break;  
+                
+            }
+        }
+    </script>
+</body>
+</html>
