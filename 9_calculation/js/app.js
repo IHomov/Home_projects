@@ -1,44 +1,45 @@
 // variables
-let operation = document.querySelectorAll('button');
+let operationRow = document.querySelectorAll('button');
 // event handler
-operation.forEach( (item) => item.addEventListener("click", function(e) { 
+operationRow.forEach( (item) => item.addEventListener("click", function(e) { 
 	Calculation(item);
 }));
 
-
-// buttonPlus.addEventListener('click', Calculation);
-// buttonMinus.addEventListener('click', Calculation);
-// buttonMultiply.addEventListener('click', Calculation);
-// buttonDivide.addEventListener('click', Calculation);
-// buttonAnswer.addEventListener('click', Calculation);
-// buttonClear.addEventListener('click', Calculation);
-
 // Describe  function calculation
-let op;
+let firstNum, secondNum, op;
 function Calculation(item) {
     let result;
-    let num1 = Number(document.querySelector('enter_text'));
-    let num2 = Number(document.querySelector('enter_text'));
-
-    switch (op) {
-        case '+':
-            result = num1 + num2;
-            break;
-        case '-':
-            result = num1 - num2;
-            break;
-        case '*':
-            result = num1 * num2;
-            break;
-        case '/':
-            result = num1 / num2;
-            break;
-        case 'C':
-            result = " ";
+    let mathOp = item.innerHTML;
+    let num = Number(document.getElementsByClassName('enter_text')[0].value);
+    if (num !== "" && mathOp!== "=" && mathOp !== undefined) {
+        firstNum = +num;
+        op = mathOp;
+        document.getElementsByClassName('enter_text')[0].value = "";
     }
-    document.querySelector('.enter_text').innerHTML = result;
-}
 
-// function ClearInput() {
-//     number.value === " ";
-// }
+    if (num !== "" && op === "=" && mathOp !== undefined) {
+        secondNum = +num;
+    
+        switch (op) {
+            case '+':
+                result = firstNum + secondNum;
+                break;
+            case '-':
+                result = firstNum - secondNum;
+                break;
+            case '*':
+                result = firstNum * secondNum;
+                break;
+            case '/':
+                result = firstNum / secondNum;
+                break;
+        
+        }
+        document.getElementsByName('resultField').innerText = result;
+    }
+    if (op === "C") {
+        document.querySelector('.enter_text').innerText = "";
+        num = "";
+        mathOp = undefined;
+    }
+}
