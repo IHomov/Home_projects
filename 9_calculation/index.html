@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Our calculator</h1>
+        </header>
+        <div class="text__field">
+            <input type="text" class="enter_text">
+        </div>
+        <div class="buttons">
+            <button class="btn_plus" onclick="op='+'">+</button>
+            <button class="btn_minus" onclick="op='-'">-</button>
+            <button class="btn_multiply" onclick="op='*'">*</button>
+            <button class="btn_divide" onclick="op='/'">/</button>
+            <button class="btn_answer" onclick="Calculation()">=</button>
+            <button class="btn_clear" onclick="op='С'">С</button>
+
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+
+
+</html>

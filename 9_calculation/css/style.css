@@ -1,0 +1,75 @@
+body {
+    background-image: url(https://images.unsplash.com/photo-1568828668638-b1b4014d91a2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1195&q=80);
+    background-repeat: repeat-x repeat-y;
+}
+/* main_container */
+.container {
+    margin: 100px auto;
+    width: 700px;
+    border: 2px solid #000;
+    background-image: linear-gradient(to right top, #f6f9ef, #edf8c5, #e7f597, #e4f164, #e4eb12);
+}
+/* Title */
+h1{
+    color:darkblue;
+    font-weight: 700;
+    font-size: 72px;
+    text-align: center;
+}
+/* Enter field */
+.text__field {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right top, #bac8dd, #7ea6ec, #4581f5, #0056f6, #1214eb);
+}
+.enter_text {
+    background-color: darkgray;
+    color: darkslateblue;
+    font-weight: bold;
+    margin: 30px 0;
+    width: 50%;
+    min-height: 50px;
+    font-size: 34px;
+}
+
+    /* Buttons */
+
+.buttons {
+    display: flex;
+    justify-content:center;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+.buttons button{
+    width: 20%;
+    margin: 5px;
+    border-radius: 50px;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.btn_plus {
+    background-color: darkgoldenrod;
+}
+
+.btn_minus {
+    background: #a00646;
+}
+
+.btn_multiply {
+    background: #1fdf0d;
+}
+
+.btn_divide {
+    background: #f1610e;
+}
+
+.btn_answer {
+    background: #06754b;
+
+}
+
+.btn_clear {
+    background: #a699df;
+}
