@@ -23,9 +23,9 @@ h1{
     flex-wrap: wrap;
     background-image: linear-gradient(to right top, #bac8dd, #7ea6ec, #4581f5, #0056f6, #1214eb);
 }
-.enter_text {
+.text {
     background-color: darkgray;
-    color: darkslateblue;
+    color: #000;
     font-weight: bold;
     margin: 7px 0;
     width: 50%;
@@ -73,4 +73,16 @@ h1{
 
 .btn_clear {
     background: #a699df;
+}
+
+/* Result */
+.resultField {
+    background-color: darkgray;
+    color: #000;
+    font-weight: bold;
+    margin: 0 auto 10px;
+    width: 50%;
+    min-height: 50px;
+    font-size: 34px;
+    border: 1px solid #000;
 }

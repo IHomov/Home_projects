@@ -8,19 +8,20 @@ operationRow.forEach( (item) => item.addEventListener("click", function(e) {
 // Describe  function calculation
 let firstNum, secondNum, op;
 function Calculation(item) {
-    let result;
+    
     let mathOp = item.innerHTML;
-    let num = Number(document.getElementsByClassName('enter_text')[0].value);
-    if (num !== "" && mathOp!== "=" && mathOp !== undefined) {
+    let num = document.getElementsByClassName('text')[0].value;
+    let result;
+    if (num !== "" && mathOp !== undefined && mathOp !== "="  ) {
         firstNum = +num;
         op = mathOp;
-        document.getElementsByClassName('enter_text')[0].value = "";
+        document.getElementsByClassName('text')[0].value = "";
     }
 
-    if (num !== "" && op === "=" && mathOp !== undefined) {
+    if (num !== "" && mathOp === "=" && op !== undefined) {
+        
         secondNum = +num;
-    
-        switch (op) {
+        switch (op){
             case '+':
                 result = firstNum + secondNum;
                 break;
@@ -35,10 +36,12 @@ function Calculation(item) {
                 break;
         
         }
-        document.getElementsByName('resultField').innerText = result;
+
+        document.querySelector('.resultField').innerText = result;
     }
+
     if (op === "C") {
-        document.querySelector('.enter_text').innerText = "";
+        document.querySelector('.resultField').innerText = "";
         num = "";
         mathOp = undefined;
     }
